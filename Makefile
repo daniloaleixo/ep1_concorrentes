@@ -3,7 +3,7 @@ CFLAGS = -Wall -O0 -g
 LFLAGS = -lm
 OUT = ep1 
 IN = ep1.c
-OBJS = ep1.o StringOps.o Fibonacci.o Heapsort.o
+OBJS = ep1.o StringOps.o Fibonacci.o Heapsort.o integral_sec_x.o
 
 all: $(OUT) ep1
 
@@ -30,3 +30,6 @@ Fibonacci.o: Fibonacci.c
 	
 Heapsort.o: Heapsort.c
 	$(CC) Heapsort.c -c -o Heapsort.o
+
+integral_sec_x.o: integral_sec_x.c
+	$(CC) integral_sec_x.c -c -o integral_sec_x.o
