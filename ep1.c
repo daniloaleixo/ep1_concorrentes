@@ -8,6 +8,8 @@
 ********************************** */
 
 #include "StringOps.h"
+#include "Fibonacci.h"
+#include "Heapsort.h"
 #include <pthread.h>
 #include <time.h>
 #include <math.h>
@@ -88,84 +90,4 @@ double integralSecX(double x, int s)
 }
 
 
-int Fibonacci(int n, int soma)
-{
-   	if ( n == 0 )
-      return 0;
-   	else if ( n == 1 )
-      return 1;
-   	else
-   		soma = ( Fibonacci(n-1, soma) + Fibonacci(n-2, soma) );
-   		printf("O Fibonacci de %d eh %d\n", n, soma );
-      	return soma;
-} 
 
-
-
-
-void imprimeVetor(int *v, int n)
-{
-	int i; 
-
-	printf("imprimindo vetor: ");
-	printf("%d", v[0]);
-	for(i = 1; i < n; i++)
-	{
-		printf(", %d", v[i]);
-	}
-	printf("\n");
-}
-
-
-int *criaVetor(int m)
-{
-	int i;
-	int *v = mallocSafe(m * sizeof(int));
-	srand( (unsigned) time(NULL) );
-
-	for(i = 0; i < m; i++)
-	{
-		v[i] = rand() % 100;
-	}
-
-	return v;
-
-}
-
-
-void heapsort(int a[], int n) {
-
-   int i = n / 2, pai, filho, t;
-
-   for (;;) {
-      if (i > 0) {
-          i--;
-          t = a[i];
-      } else {
-          n--;
-          if (n == 0) return;
-          t = a[n];
-          a[n] = a[0];
-      }
-
-      pai = i;
-
-      //Primeiro será feita a comparação com o filho da esquerda.
-      filho = i * 2 + 1;
-
-      while (filho < n) {
-
-         //Se o filho da esquerda for menor do que o filho da direita,então será feita a troca do filho que será comparado.
-          if ((filho + 1 < n)  &&  (a[filho + 1] > a[filho]))
-              filho++;
-          if (a[filho] > t) {
-             a[pai] = a[filho];
-             pai = filho;
-             filho = pai * 2 + 1;
-          } else {
-             break;
-          }
-      }
-      a[pai] = t;
-   }
-}

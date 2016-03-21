@@ -8,3 +8,4 @@ void * mallocSafe (size_t n);
 char *concatenaStrings(char *original, char *add);
 char *readLine(FILE *entrada);
 char **split(char *linha, int tamanholinha, char separador, int numeroDeEspacos);
+void imprimeVetor(int *v, int n);

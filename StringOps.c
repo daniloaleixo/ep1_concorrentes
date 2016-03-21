@@ -130,3 +130,17 @@ char *readLine(FILE *entrada)
     free(line);
     return nLine;
 }
+
+
+void imprimeVetor(int *v, int n)
+{
+  int i; 
+
+  printf("imprimindo vetor: ");
+  printf("%d", v[0]);
+  for(i = 1; i < n; i++)
+  {
+    printf(", %d", v[i]);
+  }
+  printf("\n");
+}
