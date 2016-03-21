@@ -31,13 +31,18 @@ int main(int argc, char *argv[])
 
 	int *v;
 	int m, n, r, s;
-	double x;
+	double x = 0.5;
 
 	/* Atualiza os inteiros com as entradas */
 	m = atoi(argv[1]);
 	n = atoi(argv[2]);
 	r = atoi(argv[3]);
-	s = atoi(argv[4]); 
+	s = atoi(argv[4]);
+
+	/* flags especiais */
+	if(argv[5] != NULL)
+		if(argv[5][1] == 'x')
+			x = atof(argv[6]);
 
 
 
@@ -52,7 +57,8 @@ int main(int argc, char *argv[])
 	Fibonacci(n, 0);
 
 
-	integralSecX(1.0, s);
+	/* quarta parte */
+	integralSecX(x, s);
 
 
 
@@ -70,22 +76,30 @@ double integralSecX(double x, int s)
 
 
 
-	sec_x = 1 / cos(x);
-	sec_1 = 1 / cos(1);
+	/* DEBUG
+	sec_x = 1 / cos(x); printf("sec(x): %f\n", sec_x);
+	sec_1 = 1 / cos(1); printf("sec(1): %f\n", sec_1); */
+
+
 	for(i = 0; i < s; i++)
 	{
 		x1 = ((double)rand()/(double)RAND_MAX);
 		y1 = ((double)rand()/(double)RAND_MAX)  *  sec_1;
-		/* printf("%f %f\n", x1, y1); */
-		sec_x1 = 1 / cos(x1);
-		if(sec_x1 >= y1) t++;
+
+		sec_x1 = 1 / cos(x1); 
+
+		/* DEBUG
+		printf("x1: %f y1: %f sec(x): %f \n", x1, y1, sec_x); */
+
+		if(y1 <= sec_x) t++; 
 	}
 
-	printf("t>%d\n", t);
+	/* DEBUG
+	printf("t>%d   s>%d\n", t, s); */
 
 	res = t/(double)s * sec_1;
 
-	printf("integral of sec(%f) is %f\n", x, res);
+	printf("Integral of sec(%f) is %f\n", x, res);
 	return res;
 }
 
