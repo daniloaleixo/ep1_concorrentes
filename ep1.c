@@ -33,33 +33,44 @@ int main(int argc, char *argv[])
 	int m, n, r, s;
 	double x = 0.5;
 
-	/* Atualiza os inteiros com as entradas */
-	m = atoi(argv[1]);
-	n = atoi(argv[2]);
-	r = atoi(argv[3]);
-	s = atoi(argv[4]);
+	if(argc >= 4)
+	{
+		/* Atualiza os inteiros com as entradas */
+		m = atoi(argv[1]);
+		n = atoi(argv[2]);
+		r = atoi(argv[3]);
+		s = atoi(argv[4]);
 
-	/* flags especiais */
-	if(argv[5] != NULL)
-		if(argv[5][1] == 'x')
-			x = atof(argv[6]);
-
-
-
-	/* primeira parte */
-	v = criaVetor(m);
-	imprimeVetor(v, m);
-	heapsort(v, m);
-	imprimeVetor(v, m);
+		/* flags especiais */
+		
+		if(argv[5] != NULL) 
+			if(argv[5][1] == 'x') /* --x <valor de x> */
+				x = atof(argv[6]);
 
 
-	/* segunda parte */
-	Fibonacci(n, 0);
+
+		/* primeira parte */
+		v = criaVetor(m);
+		imprimeVetor(v, m);
+		heapsort(v, m);
+		imprimeVetor(v, m);
 
 
-	/* quarta parte */
-	integralSecX(x, s);
+		/* segunda parte */
+		Fibonacci(n, 0);
 
+
+		/* quarta parte */
+		integralSecX(x, s);
+	}
+	else {
+		printf("\n\nModo de uso\n\n");
+        printf("ep1 <argumento heapsort> <argumento Fibonacci> <argumento> <argumento integral de sec x> <flags>\n\n");
+        printf("Flags:\n");
+        printf("-x <valor de x>\n");
+        printf("para modificar o valor de x, no calculo da integral de sec x\n\n");
+	}
+	
 
 
 
