@@ -11,20 +11,13 @@
 #include "Fibonacci.h"
 #include "Heapsort.h"
 #include "integral_sec_x.h"
+#include "agulha.h"
 #include <pthread.h>
 #include <time.h>
 #include <math.h>
 
 #define TRUE 1
 #define FALSE 0
-
-/* funcoes */
-int Fibonacci(int n, int soma);
-void imprimeVetor(int *v, int n);
-void heapsort(int a[], int n);
-int *criaVetor(int n);
-double integralSecX(double x, int s);
-/*------------------------------*/
 
 
 int main(int argc, char *argv[])
@@ -52,14 +45,19 @@ int main(int argc, char *argv[])
 
 		/* primeira parte */
 		v = criaVetor(m);
+		printf("P1: Vetor:          ");
 		imprimeVetor(v, m);
+
 		heapsort(v, m);
+		printf("P1: Vetor ordenado: ");
 		imprimeVetor(v, m);
 
 
 		/* segunda parte */
 		Fibonacci(n, 0);
 
+		/* terceira parte */
+		agulhaBuffon(r);
 
 		/* quarta parte */
 		integralSecX(x, s);
@@ -77,6 +75,7 @@ int main(int argc, char *argv[])
 
   	return 0;
 }
+
 
 
 

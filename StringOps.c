@@ -136,7 +136,6 @@ void imprimeVetor(int *v, int n)
 {
   int i; 
 
-  printf("imprimindo vetor: ");
   printf("%d", v[0]);
   for(i = 1; i < n; i++)
   {
