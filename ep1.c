@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 				x = atof(argv[6]);
 
 
-	    printf("Pai começou a rodar\n");
+	    printf("P0: Pai começou a rodar\n");
 	    if (!(pids[0] = fork())) {
 	    	// P1
 	        printf("\tP1 sendo criado\n");
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 	    } 
 	    else {
 	        // pai
-	        printf("Esperando os filhos retornarem\n");
+	        printf("P0: Esperando os filhos retornarem\n");
 
 	        for(i = 0; i < 4; i++)
 	        {
@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
 	            printf("\tO processo P%d foi encerrado\n",i+1);
 	        }
 	    }
-	    printf("Pai sera encerrado\n");
+	    printf("P0: Pai sera encerrado\n");
 
 		/*
 		if((pid = fork()) < 0) {
