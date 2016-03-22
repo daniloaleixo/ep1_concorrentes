@@ -38,6 +38,6 @@ double integralSecX(double x, int s)
 
 	res = t/(double)s * sec_1;
 
-	printf("P4: Numero de pontos s: %d, numero de pontos t: %d, Valor da area estimada: %f\n", s, t, res);
+	printf("\t\tP4: Numero de pontos s: %d, numero de pontos t: %d, Valor da area estimada: %f\n", s, t, res);
 	return res;
 }

@@ -21,10 +21,10 @@
 int main(int argc, char *argv[])
 {
 
-	int *v;
+	int *v, i;
 	int m, n, r, s;
 	double x = 0.5;
-	pid_t pid;
+	pid_t pids[4];
 
 	if(argc >= 4)
 	{
@@ -41,7 +41,49 @@ int main(int argc, char *argv[])
 				x = atof(argv[6]);
 
 
+	    printf("Pai começou a rodar\n");
+	    if (!(pids[0] = fork())) {
+	    	// P1
+	        printf("\tP1 sendo criado\n");
+	       	v = criaVetor(m);
+			printf("\t\tP1: Vetor:          "); imprimeVetor(v, m);
+			heapsort(v, m);
+			printf("\t\tP1: Vetor ordenado: "); imprimeVetor(v, m);sleep(5);
+	        exit(0);
+	    } 
+	    else if (!(pids[1] = fork())) {
+	        // P2
+	        printf("\tP2 sendo criado\n");
+	        Fibonacci(n, 0); sleep(5);
+	        exit(0); 
 
+	    } 
+	    else if (!(pids[2] = fork())) {
+	        // P3
+	        printf("\tP3 sendo criado\n");
+	        agulhaBuffon(r);sleep(5);
+	        exit(0);
+	    
+	    } 
+	    else if (!(pids[3] = fork())) {
+	        // P4
+	        printf("\tP4 sendo criado\n");
+	        integralSecX(x, s);sleep(5);
+	        exit(0);
+	    } 
+	    else {
+	        // pai
+	        printf("Esperando os filhos retornarem\n");
+
+	        for(i = 0; i < 4; i++)
+	        {
+	        	wait(pids[i]);
+	            printf("\tO processo P%d foi encerrado\n",i+1);
+	        }
+	    }
+	    printf("Pai sera encerrado\n");
+
+		/*
 		if((pid = fork()) < 0) {
 	    	perror("falha na criação de processo!");
 	        exit(1);
@@ -58,13 +100,13 @@ int main(int argc, char *argv[])
 	    } else {
 	        /*waitpid(pid, NULL, 0);*/
 
-	        /* segunda parte */
+	        /* segunda parte *
 			Fibonacci(n, 0);
 
-			/* terceira parte */
+			/* terceira parte *
 			agulhaBuffon(r);
 
-			/* quarta parte */
+			/* quarta parte *
 			integralSecX(x, s);
 
 			waitpid(pid, NULL, 0);

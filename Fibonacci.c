@@ -8,6 +8,6 @@ int Fibonacci(int n, int soma)
       return 1;
    	else
    		soma = ( Fibonacci(n-1, soma) + Fibonacci(n-2, soma) );
-   		printf("P2: O Fibonacci de %d eh %d\n", n, soma );
+   		printf("\t\tP2: O Fibonacci de %d eh %d\n", n, soma );
       	return soma;
 } 

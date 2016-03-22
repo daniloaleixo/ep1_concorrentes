@@ -8,7 +8,7 @@ double agulhaBuffon(int r)
 
 	srand( (unsigned) time(NULL) );
 
-	printf("P3: Vou executar %d interacoes\n", r);
+	printf("\t\tP3: Vou executar %d interacoes\n", r);
 
 
 	for(i = 0; i < r; i++)
@@ -31,5 +31,5 @@ double agulhaBuffon(int r)
 	/* DEBUG 
 	printf(">>>t: %d, res: %f\n", t, res);*/
 
-	printf("P3: Probabilidade estimada: %f\n", res);
+	printf("\t\tP3: Probabilidade estimada: %f\n", res);
 }
