@@ -48,27 +48,27 @@ int main(int argc, char *argv[])
 	       	v = criaVetor(m);
 			printf("\t\tP1: Vetor:          "); imprimeVetor(v, m);
 			heapsort(v, m);
-			printf("\t\tP1: Vetor ordenado: "); imprimeVetor(v, m);sleep(5);
+			printf("\t\tP1: Vetor ordenado: "); imprimeVetor(v, m);
 	        exit(0);
 	    } 
 	    else if (!(pids[1] = fork())) {
 	        // P2
 	        printf("\tP2 sendo criado\n");
-	        Fibonacci(n, 0); sleep(5);
+	        Fibonacci(n, 0); 
 	        exit(0); 
 
 	    } 
 	    else if (!(pids[2] = fork())) {
 	        // P3
 	        printf("\tP3 sendo criado\n");
-	        agulhaBuffon(r);sleep(5);
+	        agulhaBuffon(r);
 	        exit(0);
 	    
 	    } 
 	    else if (!(pids[3] = fork())) {
 	        // P4
 	        printf("\tP4 sendo criado\n");
-	        integralSecX(x, s);sleep(5);
+	        integralSecX(x, s);
 	        exit(0);
 	    } 
 	    else {
