@@ -4,6 +4,9 @@
 
     Danilo Aleixo Gomes de Souza
     n USP: 7972370
+
+    Gustavo Caparica 
+    n USP: 7991020
   
 ********************************** */
 
@@ -34,11 +37,11 @@ int main(int argc, char *argv[])
 		r = atoi(argv[3]);
 		s = atoi(argv[4]);
 
-		/* flags especiais */
-		
+		/* flags especiais */		
 		if(argv[5] != NULL) 
 			if(argv[5][1] == 'x') /* --x <valor de x> */
 				x = atof(argv[6]);
+
 
 
 	    printf("P0: Pai começou a rodar\n");
@@ -72,7 +75,7 @@ int main(int argc, char *argv[])
 	        exit(0);
 	    } 
 	    else {
-	        // pai
+	        // Volta para o Pai
 	        printf("P0: Esperando os filhos retornarem\n");
 
 	        for(i = 0; i < 4; i++)
@@ -83,60 +86,6 @@ int main(int argc, char *argv[])
 	    }
 	    printf("P0: Pai sera encerrado\n");
 
-		/*
-		if((pid = fork()) < 0) {
-	    	perror("falha na criação de processo!");
-	        exit(1);
-	    } else if(pid == 0) {
-	    	
-	    	v = criaVetor(m);
-			printf("P1: Vetor:          "); imprimeVetor(v, m);
-
-			sleep(1);
-
-			heapsort(v, m);
-			printf("P1: Vetor ordenado: "); imprimeVetor(v, m);
-
-	    } else {
-	        /*waitpid(pid, NULL, 0);*/
-
-	        /* segunda parte *
-			Fibonacci(n, 0);
-
-			/* terceira parte *
-			agulhaBuffon(r);
-
-			/* quarta parte *
-			integralSecX(x, s);
-
-			waitpid(pid, NULL, 0);
-	    }
-
-		/* primeira parte *
-		v = criaVetor(m);
-		printf("P1: Vetor:          "); imprimeVetor(v, m);
-
-		heapsort(v, m);
-		printf("P1: Vetor ordenado: "); imprimeVetor(v, m); */
-
-
-		/* segunda parte *
-		Fibonacci(n, 0);
-
-		/* terceira parte *
-		agulhaBuffon(r);
-
-		/* quarta parte *
-		integralSecX(x, s);
-
-
-
-		/* 
-		primeiro aproach 
-		forkProcess(1, m, 0);
-		forkProcess(2, n, 0);
-		forkProcess(3, r, 0);
-		forkProcess(4, s, x); */
 	}
 	else {
 		printf("\n\nModo de uso\n\n");
@@ -148,53 +97,6 @@ int main(int argc, char *argv[])
 	
 
 
-
   	return 0;
 }
-
-
-/*
-void forkProcess (int process, int arg, double sec_arg)
- {
-    int i;
-    pid_t pid;
-    int *v;
-
-    pid = fork();
-
-    if (pid == -1) {
-        /* error handling here, if needed *
-        return;
-    }
-    if (pid == 0) {
-        printf("I am a child: %d PID: %d\n",i, getpid());
-        switch(process)
-        {
-        	case 1:
-        	v = criaVetor(arg);
-			printf("P1: Vetor:          "); imprimeVetor(v, arg);
-			heapsort(v, arg);
-			printf("P1: Vetor ordenado: "); imprimeVetor(v, arg);
-			waitpid(pid, NULL, 0);
-			return;
-
-			case 2:
-			Fibonacci(arg, 0);
-			waitpid(pid, NULL, 0);
-			return;
-
-			case 3:
-			agulhaBuffon(arg);
-			waitpid(pid, NULL, 0);
-			return;
-
-			case 4:
-			integralSecX(sec_arg, arg);
-			waitpid(pid, NULL, 0);
-			return;
-        }
-    }
-
-}*/
-
 

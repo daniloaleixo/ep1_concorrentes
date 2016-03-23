@@ -17,7 +17,11 @@ int *criaVetor(int m)
 
 }
 
-
+/*
+O código do heapsort foi tirado da página da wikipedia 
+onde explica o metodo heapsort, que se encontra disponibilizado no seguinte link:
+https://pt.wikipedia.org/wiki/Heapsort#C.C3.B3digo_em_C
+*/
 void heapsort(int a[], int n) {
 
    int i = n / 2, pai, filho, t;

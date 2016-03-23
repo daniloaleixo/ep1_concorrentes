@@ -18,9 +18,6 @@ double agulhaBuffon(int r)
 		theta = ((double)rand()/(double)RAND_MAX)  *  2 * M_PI;	
 
 		expr = d + L * sin(theta);
-		
-		/* DEBUG 
-		printf("d: %f, theta: %f, expr: %f\n",d, theta, expr); */
 
 
 		if(expr < 0 || expr > G)
@@ -28,8 +25,6 @@ double agulhaBuffon(int r)
 	}
 
 	res = t/(double)r;
-	/* DEBUG 
-	printf(">>>t: %d, res: %f\n", t, res);*/
 
 	printf("\t\tP3: Probabilidade estimada: %f\n", res);
 }

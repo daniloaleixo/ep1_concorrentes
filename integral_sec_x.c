@@ -15,10 +15,6 @@ double integralSecX(double x, int s)
 	sec_x = 1 / cos(x); 
 	sec_1 = 1 / cos(1); 
 
-	/* DEBUG
-	printf("sec(1): %f\n", sec_1); 
-	printf("sec(x): %f\n", sec_x); */
-
 
 	for(i = 0; i < s; i++)
 	{
@@ -27,14 +23,8 @@ double integralSecX(double x, int s)
 
 		sec_x1 = 1 / cos(x1); 
 
-		/* DEBUG 
-		printf("x1: %f y1: %f sec(x): %f \n", x1, y1, sec_x);  */
-
 		if(y1 <= sec_x) t++; 
 	}
-
-	/* DEBUG 
-	printf("t>%d   s>%d\n", t, s); */
 
 	res = t/(double)s * sec_1;
 
